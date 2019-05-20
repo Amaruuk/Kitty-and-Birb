@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://mindfire.games/~kts/fonts/bellaboo.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
+<style>
+  /* Grobars */
+  * {
+      box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: url("hwood.jpg");
+  }
+  a {
+    font-family: "BELLABOO", cursive;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+  a:visited, a {
+    color: #000;
+  }
+  /* Top-bar styling */
+  body > header {
+    display: flex;
+    flex-direction: column;
+    background: url('headUnder.png');
+    background-repeat: repeat-x;
+    height: 148px;
+  }
+
+  body > header > h1 {
+    margin: 0; padding: 0;
+    width: 100%;
+    height: 107px;
+    background: url('headOver.png');
+    background-repeat: repeat-x;
+    text-align: center;
+  }
+
+  #TopLogo {
+    display: inline-block;
+    background: url('topLogo.png');
+    width: 202px;
+    height: 76px;
+    margin-top: 5px;
+  }
+
+  body > header > nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
+    top: -5px;
+  }
+  body > header > nav > * {
+    text-align: center;
+  }
+  #Search {
+  }
+  #Search form {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0; margin: 0;
+    height: 26px;
+  }
+  #Search input, #Search button {
+    background: rgba(50, 39, 28, 0.36);
+    border: 0;
+  }
+  #Search input[type=text] {
+    border-radius: 32px 0 0 32px;
+    padding: 8px;
+  }
+  #Search button {
+    background: url('search.png'), rgba(50, 39, 28, 0.36);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 32px;
+    border-radius: 0 32px 32px 0;
+  }
+  #Pagination {
+    padding: 0 32px;
+  }
+  #Links {
+    text-align: left;
+  }
+  #Links #Thingdex, #Links #AskUs {
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    margin: 0 12px;
+  }
+  #Links #Thingdex {
+    background-image: url('thingdex.png');
+    padding-left: 20px;
+  }
+  #Links #AskUs {
+    background-image: url('ask.png');
+    padding-left: 20px;
+  }
+  /* Content area */
+  section#GigaContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 530px 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  aside {
+    padding: 0 15px;
+  }
+  aside#Left {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: right;
+  }
+  aside#Left > a {
+    justify-content: flex-end;
+  }
+  aside#Right {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    text-align: left;
+  }
+  aside#Right > a {
+    justify-content: flex-start;
+  }
+  aside > a, aside > a:visited {
+    display: flex;
+    align-items: center;
+    color: #e8d2b8;
+  }
+  aside > a > img {
+    padding: 0 4px;
+  }
+
+  main#Content {
+    grid-column-start: 3;
+    grid-column-end: 3;
+  }
+  article {
+    background: #efe2cc;
+    border: 6px solid #b99e8e;
+    box-shadow: 0 0 2px 2px rgba(3, 22, 47, 0.55);
+    padding: 10px;
+    margin: 32px 0;
+    font-family: 'El Messiri', sans-serif;
+    font-size: 13px;
+  }
+  article a {
+    font-family: 'El Messiri', sans-serif;
+  }
+  .post iframe {
+    max-width: 100%;
+  }
+</style>
+<title>{Title}</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}
+  <meta name="description" content="{MetaDescription}" />
+{/block:Description}
+</head>
+<body>
+<header>
+  <h1>
+    <span id="TopLogo"></span>
+  </h1>
+  <nav>
+    <div id="Search">
+      <form action="/search" method="get">
+        <input type="text" name="q" value="{SearchQuery}"/>
+        <button></button>
+      </form>
+    </div>
+    <div id="Pagination">
+      {block:PreviousPage}
+        <a href="{PreviousPage}">&lt;</a>
+      {/block:PreviousPage}
+      {block:JumpPagination length="3"}
+        {block:CurrentPage}
+          <a href="{URL}">{PageNumber}</a>
+        {/block:CurrentPage}
+        {block:JumpPage}
+          <a href="{URL}">{PageNumber}</a>
+        {/block:JumpPage}
+      {/block:JumpPagination}
+      {block:NextPage}
+        <a href="{NextPage}">&gt;</a>
+      {/block:NextPage}
+    </div>
+    <div id="Links">
+      <a id="Thingdex" href="THINGDEX">Thingdex</a>
+      <a id="AskUs" href="ASKUS">Ask&thinsp;us</a>
+    </div>
+  </nav>
+</header>
+<section id="GigaContent">
+  <aside id="Left">
+    <a href="BLEP"><img class="Avatar" src="birb03.png"></a>
+    <a href="http://www.angelarconnor.com/">website <img src="birb.png"></a>
+    <a href="https://twitter.com/amaruuk">@amaruuk <img src="twitter.png"></a>
+  </aside>
+  <main id="Content">
+    {block:Posts}
+      {block:Text}
+        <article class="post text">
+          {block:Title}
+          <h3><a href="{Permalink}">{Title}</a></h3>
+          {/block:Title}{Body}
+        </article>
+      {/block:Text}
+      {block:Photo}
+        <article class="post photo">
+            <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+
+            {block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </article>
+      {/block:Photo}
+      {block:Panorama}
+        <article class="post panorama">
+          {LinkOpenTag}
+            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+          {LinkCloseTag}
+          {block:Caption}
+            <div class="caption">{Caption}</div>
+          {/block:Caption}
+        </article>
+      {/block:Panorama}
+      {block:Photoset}
+        <article class="post photoset">
+            {Photoset-500}{block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
+        </article>
+      {/block:Photoset}
+      {block:Quote}
+        <article class="post quote">
+          "{Quote}"
+
+          {block:Source}
+            <div class="source">{Source}</div>
+          {/block:Source}
+        </article>
+      {/block:Quote}
+      {block:Link}
+        <article class="post link">
+          <a href="{URL}" class="link" {Target}>{Name}</a>
+          {block:Description}
+            <div class="description">{Description}</div>
+          {/block:Description}
+        </article>
+      {/block:Link}
+      {block:Chat}
+        <article class="post chat">
+          {block:Title}
+            <h3><a href="{Permalink}">{Title}</a></h3>
+          {/block:Title}
+          <ul class="chat">
+            {block:Lines}
+              <li class="{Alt} user_{UserNumber}">
+                {block:Label}
+                  <span class="label">{Label}</span>
+                {/block:Label}
+                {Line}
+              </li>
+            {/block:Lines}
+          </ul>
+        </article>
+      {/block:Chat}
+      {block:Video}
+        <article class="post video">
+          {Video-500}{block:Caption}
+            <div class="caption">{Caption}</div>
+          {/block:Caption}
+        </article>
+      {/block:Video}
+      {block:Audio}
+        <article class="post audio">
+          {AudioEmbed}{block:Caption}
+            <div class="caption">{Caption}</div>
+          {/block:Caption}
+        </article>
+      {/block:Audio}
+    {/block:Posts}
+  </main>
+  <aside id="Right">
+    <a href="BLEP"><img class="Avatar" src="kitty03.png"></a>
+    <a href="https://kettek.net"><img src="dinko.png"> website</a>
+    <a href="https://twitter.com/kts_kettek"><img src="twitter.png"> @kts_kettek</a>
+  </aside>
+</section>
+</body>
+</html>
