@@ -68,7 +68,7 @@
 
   body > header > nav {
     display: grid;
-    grid-template-columns: auto 186px 156px 186px auto;
+    grid-template-columns: auto 181px 167px 181px auto;
     grid-template-rows: 1fr;
     position: relative;
     top: -7px;
@@ -119,7 +119,7 @@
     background: rgba(239,227,205,0.55);
   }
   #Links {
-    text-align: left;
+    text-align: right;
     grid-column-start: 4;
     grid-column-end: 4;
   }
@@ -128,7 +128,7 @@
       align-items: center;
   }
   #Links #Thingdex, #Links #AskUs {
-    margin: 0 6px;
+    margin-right: 12px;
   }
   /* Content area and sidebars */
   section#GigaContent {
@@ -194,8 +194,12 @@
     font-size: 0.8em;
   }
   figure {
+    text-align: center;
     margin: 0;
     padding: 8px;
+  }
+  figure p {
+    text-align: left;
   }
   /* Tumblr styling */
   .post iframe {
