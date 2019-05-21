@@ -22,12 +22,14 @@
   }
   a {
     font-family: 'Aref Ruqaa', serif;
-    letter-spacing: 1px;
     text-decoration: none;
     text-transform: uppercase;
   }
   a:visited, a {
-    color: #000;
+    color: #38342c;
+  }
+  a:hover {
+    color: #867464;
   }
   a span {
     padding-bottom: 3px;
@@ -72,6 +74,7 @@
     grid-template-rows: 1fr;
     position: relative;
     top: -7px;
+    color: #38342c;
   }
   body > header > nav > * {
     text-align: center;
@@ -111,9 +114,6 @@
   #Pagination a {
     padding: 0 .5em .2em .5em;
     border-radius: 4px;
-  }
-  #Pagination a:hover {
-    background: rgba(239,227,205,0.25);
   }
   #Pagination a.current_page, #Pagination a.current_page:hover {
     background: rgba(239,227,205,0.55);
@@ -162,6 +162,9 @@
     align-items: center;
     color: #e8d2b8;
   }
+  aside a:hover {
+    color: #867464;
+  }
   aside > a > img {
     padding: 0 4px;
   }
@@ -174,17 +177,21 @@
   article {
     background: #efe2cc;
     border: 6px solid #b99e8e;
-    color: #000;
+    color: #38342c;
     box-shadow: 0 0 2px 2px rgba(3, 22, 47, 0.55);
     margin-bottom: 32px;
     margin-top: 12px;
     font-family: 'Raleway', sans-serif;
     font-size: 13px;
   }
-  article a {
+  article a, article a:visited {
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
     text-transform: none;
+    color: #5c4a46;
+  }
+  article a:hover {
+    color: #867464;
   }
   article footer {
     border-top: 1px #b99e8e solid ;
@@ -224,6 +231,8 @@
   }
   .tmblr-iframe--unified-controls {
     z-index: 9999 !important;
+    right: -4px !important;
+    top: -8px !important;
   }
 </style>
 <title>{Title}</title>
@@ -247,7 +256,7 @@
     </div>
     <div id="Pagination">
       {block:PreviousPage}
-        <a href="{PreviousPage}">&#x2BC7;</a>
+        <a href="{PreviousPage}">&#9668;</a>
       {/block:PreviousPage}
       {block:JumpPagination length="3"}
         {block:CurrentPage}
@@ -258,7 +267,7 @@
         {/block:JumpPage}
       {/block:JumpPagination}
       {block:NextPage}
-        <a href="{NextPage}">&#x2BC8;</a>
+        <a href="{NextPage}">&#9658;</a>
       {/block:NextPage}
     </div>
     <div id="Links">
